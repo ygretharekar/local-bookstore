@@ -35,6 +35,25 @@ class Book(models.Model):
 		'''
 		return reverse('book-detail', args=[str(self.id)])  # pylint: disable=E1101
 
+	def display_genre(self):
+		'''
+		Creates a string for the genre
+		'''
+		return ', '.join([genre.name for genre in self.genre.all()[:2]])  # pylint: disable=E1101
+
+	display_genre.short_description = 'Genre'
+
+	def display_lang(self):
+		'''
+		Creates a string for the language
+		'''
+		
+		return self.language
+
+	display_lang.short_description = 'Language'
+
+
+
 
 import uuid
 
@@ -66,6 +85,26 @@ class BookInstance(models.Model):
 		'''
 		return f'{self.id} ({self.book.title})'  # pylint: disable=E1101
 
+	def display_loan_status(self):
+		'''
+		Displays loan status
+		'''
+
+		loan_status = [status[1] for status in self.LOAN_STATUS if status[0] == self.status]
+
+		return f'{ loan_status[0] }'
+
+
+
+	display_loan_status.short_description = 'Loan Status'
+
+	def display_title(self):
+		'''
+		Display book title
+		'''
+		return f'{self.book.title}'  # pylint: disable=E1101
+	
+	display_title.short_description = 'Title'
 
 
 class Author(models.Model):
