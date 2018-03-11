@@ -4,9 +4,6 @@ from django.shortcuts import render
 
 from .models import Book, BookInstance, Author, Genre
 
-
-
-
 def index(request):
 	'''
 	View function for home page site
@@ -34,6 +31,16 @@ from django.views import generic
 class BookListView(generic.ListView):
 	model = Book
 
+	def get_context_data(self, **kwargs):
+		context = super(BookListView, self).get_context_data(**kwargs)
+
+		context['name'] = 'ygr'
+
+		return context
+
+
+class BookDetailView(generic.DetailView):
+	model = Book
 
 
 

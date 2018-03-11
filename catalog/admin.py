@@ -9,6 +9,8 @@ from .models import Author, Book, BookInstance, Language, Genre
 admin.site.register(Language)
 admin.site.register(Genre)
 
+
+
 class AuthorAdmin(admin.ModelAdmin):
 	list_display = ('last_name', 'first_name', 'date_of_birth')
 	fields = ['first_name', 'last_name','date_of_birth']
