@@ -9,15 +9,12 @@
 		<ul>
 			{% for book in book_list %}
 				<li>
-					<a href="http://">
+					<a href="{{book.get_absolute_url}}">
 						{{book.title}}
 					</a>
 					({{book.author}})
 				</li>
 			{% endfor %}
-			<li>
-				{{name}}
-			</li>
 		</ul>
 		{% else %}
 		<p>There is no book in Library</p>

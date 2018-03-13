@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %} 
+
+{% block content %}
+	<h1>
+		Author: {{object.last_name}}, {{object.first_name}}
+	</h1>
+
+	<p>
+		{{obect.date_of_birth}}
+	</p>
+
+	<h4>
+		Books:
+	</h4>
+
+	<dl>
+		{% for copy in object.book_set.all %}
+			<dt>
+				<a href="{{copy.get_absolute_url}}">
+					{{copy.title}}
+				</a>
+				({{ copy.bookinstance_set.all.count }})
+			</dt>
+			<dd>
+				{{copy.summary}}
+			</dd>
+		{% endfor %}
+	</dl>
+	
+	
+{% endblock %}

@@ -29,6 +29,7 @@ class Book(models.Model):
 		return self.title
 
 
+
 	def get_absolute_url(self):
 		'''
 		Return the url to access detail record for this book
@@ -51,8 +52,6 @@ class Book(models.Model):
 		return self.language
 
 	display_lang.short_description = 'Language'
-
-
 
 
 import uuid
