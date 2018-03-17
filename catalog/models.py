@@ -12,7 +12,6 @@ class Genre(models.Model):
 		return self.name
 
 
-
 from django.urls import reverse
 
 class Book(models.Model):
