@@ -172,6 +172,3 @@ from django.http import JsonResponse
 
 def JSONResponseClass(request):
 	return JsonResponse({'Hello': request.GET})
-
-
-
